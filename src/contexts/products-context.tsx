@@ -25,7 +25,6 @@ export const ProductsContextProvider = ({
   const [products, setProducts] = useState<ProductType[] | []>([])
 
   useEffect(() => {
-    console.log('useEffect[]') // LOG
     const storedProducts = localStorage.getItem('products')
     if (storedProducts) {
       console.log('storedProducts', storedProducts) // LOG
