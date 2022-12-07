@@ -25,15 +25,18 @@ export const ProductsContextProvider = ({
   const [products, setProducts] = useState<ProductType[] | []>([])
 
   useEffect(() => {
+    console.log('useEffect[]') // LOG
     const storedProducts = localStorage.getItem('products')
     if (storedProducts) {
+      console.log('storedProducts', storedProducts) // LOG
       setProducts(JSON.parse(storedProducts))
     }
   }, [])
 
   useEffect(() => {
-    // console.log('products', products) // !LOG
+    if (products.length === 0) return
     localStorage.setItem('products', JSON.stringify(products))
+    console.log('products stored', products) // LOG
   }, [products])
 
   return (
