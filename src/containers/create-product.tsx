@@ -1,15 +1,16 @@
 import { useState, useContext, FormEvent } from 'react'
 
+import { ProductType } from '../contexts/products-context'
 import { ProductsContext } from '../contexts/products-context'
 
 import './container_styles.scss'
 
 const CreateProduct = () => {
-  const [name, setName] = useState('')
-  const [description, setDescription] = useState('')
-  const [imageUrl, setImageUrl] = useState('')
-  const [price, setPrice] = useState(0)
-  const [quantity, setQuantity] = useState(0)
+  const [name, setName] = useState<string>('')
+  const [description, setDescription] = useState<string>('')
+  const [imageUrl, setImageUrl] = useState<string>('')
+  const [price, setPrice] = useState<number>(0)
+  const [quantity, setQuantity] = useState<number>(0)
 
   const { products, setProducts } = useContext(ProductsContext)
 
@@ -25,7 +26,7 @@ const CreateProduct = () => {
         price,
         quantity,
       },
-    ])
+    ] as ProductType[])
 
     setName('')
     setDescription('')
