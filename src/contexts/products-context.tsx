@@ -1,11 +1,18 @@
 import { ReactNode, createContext, useState, useEffect } from 'react'
 
+export type VariantType = {
+  id: string
+  color: string
+  imageUrl: string
+  quantity: number
+}
+
 export type ProductType = {
+  id: string
   name: string
   description: string
-  imageUrl: string
   price: number
-  quantity: number
+  variants: VariantType[]
 }
 
 type ProductsContextType = {
