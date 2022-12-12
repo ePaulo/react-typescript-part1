@@ -1,25 +1,24 @@
-import { Routes, Route, Link } from 'react-router-dom'
+import { Routes, Route, Link, Navigate } from 'react-router-dom'
 
-import { ProductsContextProvider } from './contexts/products-context'
-import CreateProduct from './containers/create-product'
-import AllProducts from './containers/all-products'
+import CreateProductPage from './containers/create-product.page'
+import AllProductsPage from './containers/all-products.page'
 
 import './app.scss'
 
 function App() {
   return (
     <div className='app-containers'>
-      <ProductsContextProvider>
-        <nav className='nav'>
-          <Link to='/'>Create Product</Link>
-          <Link to='all-products'>All Products</Link>
-        </nav>
+      <nav className='nav'>
+        <Link to='/'>Create New Product</Link>
+        <Link to='all-products'>View Product Catalog</Link>
+      </nav>
 
-        <Routes>
-          <Route path='/' element={<CreateProduct />} />
-          <Route path='all-products' element={<AllProducts />} />
-        </Routes>
-      </ProductsContextProvider>
+      <Routes>
+        <Route path='/' element={<Navigate to='/create-product' />} />
+        <Route path='/create-product' element={<CreateProductPage />} />
+        <Route path='/all-products' element={<AllProductsPage />} />
+        <Route path='*' element={<Navigate to='/create-product' />} />
+      </Routes>
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import { ReactNode, createContext, useState, useEffect } from 'react'
 
-export type VariantType = {
+export type ColorVariantType = {
   id: string
   color: string
   imageUrl: string
@@ -12,7 +12,7 @@ export type ProductType = {
   name: string
   description: string
   price: number
-  variants: VariantType[]
+  colorVariants: ColorVariantType[]
 }
 
 type ProductsContextType = {
@@ -41,8 +41,10 @@ export const ProductsContextProvider = ({
 
   useEffect(() => {
     if (products.length === 0) return
-    localStorage.setItem('products', JSON.stringify(products))
-    console.log('products stored', products) // LOG
+    else {
+      localStorage.setItem('products', JSON.stringify(products))
+      console.log('products stored', products) // LOG
+    }
   }, [products])
 
   return (

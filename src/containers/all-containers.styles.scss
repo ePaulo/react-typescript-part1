@@ -1,0 +1,21 @@
+.container {
+  min-width: inherit;
+  margin: 0 auto;
+  border: none;
+  padding: 0;
+
+  color: lightskyblue;
+  font-size: 1.1rem;
+
+  .title {
+    margin: 1rem;
+  }
+
+  .create-product {
+    border: none;
+  }
+
+  .all-products {
+    border: none;
+  }
+}
